@@ -5,8 +5,6 @@ using laba1.Services;
 
 namespace laba1.Tests
 {
-    // Тесты, фиксирующие граничные и некорректные случаи на уровне модели.
-    // Используются в лабораторной работе №4 при анализе ошибок.
     [TestClass]
     public class BoundaryConditionTests
     {
@@ -22,9 +20,6 @@ namespace laba1.Tests
         [TestMethod]
         public void RemoveDelivery_ByReference_WorksCorrectlyAtManagerLevel()
         {
-            // На уровне DeliveryManager удаление по ссылке работает корректно —
-            // реальная проблема (лаб. №3/№4) была именно в разборе строки
-            // в DeliveryForm.RemoveDeliveryButton_Click, а не в самом менеджере.
             var manager = new DeliveryManager();
             var delivery = new Delivery("Тест", "Тестовый адрес", DateTime.Now.AddDays(1));
             manager.AddDelivery(delivery);

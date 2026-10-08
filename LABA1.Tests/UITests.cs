@@ -16,13 +16,13 @@ namespace laba1.Tests
             _form = new DeliveryForm();
         }
 
-        private T? FindControl<T>(string text) where T : Control =>
-            _form.Controls.OfType<T>().FirstOrDefault(c => c.Text == text);
+        private T? FindControl<T>(string name) where T : Control =>
+            _form.Controls.OfType<T>().FirstOrDefault(c => c.Name == name);
 
         [TestMethod]
         public void AddDeliveryButton_IsPresentAndEnabled()
         {
-            var button = FindControl<Button>("Добавить");
+            var button = FindControl<Button>("addDeliveryButton");
             Assert.IsNotNull(button);
             Assert.IsTrue(button!.Enabled);
         }
@@ -30,29 +30,28 @@ namespace laba1.Tests
         [TestMethod]
         public void RemoveDeliveryButton_IsPresent()
         {
-            var button = FindControl<Button>("Удалить");
-            Assert.IsNotNull(button);
-        }
-
-        [TestMethod]
-        public void UpdateStatusButton_IsPresent()
-        {
-            var button = FindControl<Button>("Обновить статус");
+            var button = FindControl<Button>("removeDeliveryButton");
             Assert.IsNotNull(button);
         }
 
         [TestMethod]
         public void EditDeliveryButton_IsPresent()
         {
-            // Кнопка, добавленная в лаб. №5
-            var button = FindControl<Button>("Редактировать");
+            var button = FindControl<Button>("editDeliveryButton");
+            Assert.IsNotNull(button);
+        }
+
+        [TestMethod]
+        public void UpdateStatusButton_IsPresent()
+        {
+            var button = FindControl<Button>("updateStatusButton");
             Assert.IsNotNull(button);
         }
 
         [TestMethod]
         public void DeliveriesListBox_IsPresentAndEnabled()
         {
-            var listBox = _form.Controls.OfType<ListBox>().FirstOrDefault();
+            var listBox = FindControl<ListBox>("deliveriesListBox");
             Assert.IsNotNull(listBox);
             Assert.IsTrue(listBox!.Enabled);
         }
