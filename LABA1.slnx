@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="LABA1/LABA1.csproj" />
+  <Project Path="LABA1.Tests/LABA1.Tests.csproj" />
+  <Project Path="LABA1.UITests/LABA1.UITests.csproj" />
+</Solution>
